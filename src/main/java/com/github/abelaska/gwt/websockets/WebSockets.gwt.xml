@@ -1,0 +1,5 @@
+<module>
+	<inherits name='com.google.gwt.user.User'/>
+	
+	<script src="web-socket-js.min.js"></script>
+</module>

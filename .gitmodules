@@ -1,0 +1,3 @@
+[submodule "web-socket-js"]
+	path = web-socket-js
+	url = git://github.com/abelaska/web-socket-js.git
