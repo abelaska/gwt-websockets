@@ -1,1 +1,4 @@
 target/
+war/WEB-INF/lib/
+war/WEB-INF/classes/
+war/com.github.abelaska.gwt.websockets.WebSockets/

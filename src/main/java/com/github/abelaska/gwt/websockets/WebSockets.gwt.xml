@@ -1,5 +1,14 @@
 <module>
-	<inherits name='com.google.gwt.user.User'/>
-	
-	<script src="web-socket-js.min.js"></script>
+	<inherits name="com.google.gwt.user.User" />
+	<inherits name="com.google.gwt.core.Core" />
+
+	<script src="web-socket-js.min.js" />
+
+	<define-property name="web.sockets" values="true,false" />
+
+	<property-provider name="web.sockets"><![CDATA[
+                return "WebSocket" in window;
+    ]]></property-provider>
+    
+    <entry-point class="com.github.abelaska.gwt.websockets.client.WebSocketsTestEntryPoint" />
 </module>
