@@ -1,7 +1,7 @@
 target/
-war/WEB-INF/lib/
-war/WEB-INF/classes/
-war/WebSockets/
 .classpath
 .project
 .settings/
+gwt-websockets-test/war/WEB-INF/classes/
+gwt-websockets-test/war/WEB-INF/lib/
+gwt-websockets-test/war/WebSocketsTest/
