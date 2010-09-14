@@ -6,15 +6,19 @@ console 2:
 $ git clone git://github.com/abelaska/gwt-websockets.git
 $ git submodule init
 $ git submodule update
+$ cd gwt-websockets-parent
+$ mvn install
 $ cd gwt-websockets
-$ mvn gwt:run
+$ mvn install
+$ cd gwt-websockets-test
+$ mvn gwt:run -Pconsole
 Open in browser address: http://127.0.0.1:8888/test.html?gwt.codesvr=127.0.0.1:9997
 
 Pro editaci projektu v Eclipse:
-1/ import jako Maven projektu
-2/ kliknuti pravym mysitkem na projekt -> properties -> Google -> Web Toolkit
+1/ import adresare gwt-websockets-parent jako Maven projektu
+2/ kliknuti pravym mysitkem na projekt gwt-websockets-test -> properties -> Google -> Web Toolkit
 3/ zakliknuti checkboxu "Use Google Web toolkit"
 
-Spusteni v Eclipsu:
+Spusteni gwt-websockets-test v Eclipsu:
 1/ run as "Web Application"
 2/ otevrit v prohlizeci adresu: http://127.0.0.1:8888/test.html?gwt.codesvr=127.0.0.1:9997

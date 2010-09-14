@@ -3,33 +3,28 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.github.abelaska</groupId>
-	<artifactId>gwt-websockets</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
-	<name>gwt-websockets</name>
-	<description>GWT WebSockets library</description>
+	<parent>
+		<groupId>com.github.abelaska</groupId>
+		<artifactId>gwt-websockets-parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>gwt-websockets-test</artifactId>
+	<packaging>jar</packaging>
+	<name>gwt-websockets-test</name>
+	<description>GWT WebSockets library test</description>
 
 	<profiles>
 		<profile>
-			<id>release</id>
+			<id>console</id>
 			<dependencies>
 				<dependency>
 					<groupId>com.google.gwt</groupId>
 					<artifactId>gwt-user</artifactId>
-					<version>2.0.4</version>
+					<version>${gwt-version}</version>
 				</dependency>
 			</dependencies>
 			<build>
-				<resources>
-					<resource>
-						<directory>src/main/java</directory>
-						<includes>
-							<include>**/client/**</include>
-							<include>**/public/**</include>
-							<include>**/*.gwt.xml</include>
-						</includes>
-					</resource>
-				</resources>
 				<plugins>
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
@@ -59,24 +54,25 @@
 		</profile>
 	</profiles>
 
+			<dependencies>
+				<dependency>
+					<groupId>${project.groupId}</groupId>
+					<artifactId>gwt-websockets</artifactId>
+					<version>${project.version}</version>
+				</dependency>
+			</dependencies>
+
 	<build>
 		<outputDirectory>war/WEB-INF/classes</outputDirectory>
-
-		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-				</configuration>
-			</plugin>
-		</plugins>
+				<resources>
+					<resource>
+						<directory>src/main/java</directory>
+						<includes>
+							<include>**/client/**</include>
+							<include>**/public/**</include>
+							<include>**/*.gwt.xml</include>
+						</includes>
+					</resource>
+				</resources>
 	</build>
-
-	<pluginRepositories>
-		<pluginRepository>
-			<id>Codehaus Mojo Snapshot</id>
-			<url>http://snapshots.repository.codehaus.org/</url>
-		</pluginRepository>
-	</pluginRepositories>
 </project>

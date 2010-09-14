@@ -11,6 +11,4 @@
     ]]></property-provider>
     
     <source path="client"/>
-    
-    <entry-point class="com.github.abelaska.gwt.websockets.client.WebSocketTestEntryPoint" />
 </module>

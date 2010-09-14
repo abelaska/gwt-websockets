@@ -1,0 +1,9 @@
+<module rename-to="WebSocketsTest">
+	<inherits name="com.google.gwt.user.User" />
+	<inherits name="com.google.gwt.core.Core" />
+	<inherits name="com.github.abelaska.gwt.websockets.WebSockets" />
+
+    <source path="client"/>
+    
+    <entry-point class="com.github.abelaska.gwt.websockets.client.WebSocketTestEntryPoint" />
+</module>
