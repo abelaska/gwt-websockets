@@ -9,38 +9,58 @@
 	<name>gwt-websockets</name>
 	<description>GWT WebSockets library</description>
 
-	<dependencies>
-		<dependency>
-			<groupId>com.google.gwt</groupId>
-			<artifactId>gwt-user</artifactId>
-			<version>2.0.4</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.gwt</groupId>
-			<artifactId>gwt-dev</artifactId>
-			<version>2.0.4</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.8.1</version>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+	<profiles>
+		<profile>
+			<id>release</id>
+			<dependencies>
+				<dependency>
+					<groupId>com.google.gwt</groupId>
+					<artifactId>gwt-user</artifactId>
+					<version>2.0.4</version>
+				</dependency>
+			</dependencies>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>gwt-maven-plugin</artifactId>
+						<version>1.3-SNAPSHOT</version>
+						<configuration>
+							<webappDirectory>war/WEB-INF/classes</webappDirectory>
+							<runTarget>test.html</runTarget>
+						</configuration>
+						<executions>
+							<execution>
+								<phase>process-classes</phase>
+								<configuration>
+									<localWorkers>2</localWorkers>
+									<logLevel>INFO</logLevel>
+									<!--<style>PRETTY</style> -->
+									<!--<style>OBFUSCATED</style> -->
+								</configuration>
+								<goals>
+									<goal>compile</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 	<build>
 		<outputDirectory>war/WEB-INF/classes</outputDirectory>
-	
-	    <resources>
-		<resource>
-		    <directory>src/main/java</directory>
-		    <includes>
-			<include>**/*.java</include>
-		        <include>**/*.gwt.xml</include>
-		    </includes>
-		</resource>
-	    </resources>
+
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.java</include>
+					<include>**/*.gwt.xml</include>
+				</includes>
+			</resource>
+		</resources>
 
 		<plugins>
 			<plugin>
@@ -49,29 +69,6 @@
 					<source>1.6</source>
 					<target>1.6</target>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>gwt-maven-plugin</artifactId>
-				<version>1.3-SNAPSHOT</version>
-				<configuration>
-					<webappDirectory>war/WEB-INF/classes</webappDirectory>
-					<runTarget>test.html</runTarget>
-				</configuration>
-				<executions>
-					<execution>
-						<phase>process-classes</phase>
-						<configuration>
-							<localWorkers>2</localWorkers>
-							<logLevel>INFO</logLevel>
-							<!--<style>PRETTY</style>-->
-							<!--<style>OBFUSCATED</style>-->
-						</configuration>
-						<goals>
-							<goal>compile</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>

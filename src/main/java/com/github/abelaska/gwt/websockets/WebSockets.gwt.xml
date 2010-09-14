@@ -1,4 +1,4 @@
-<module>
+<module rename-to="WebSockets">
 	<inherits name="com.google.gwt.user.User" />
 	<inherits name="com.google.gwt.core.Core" />
 
@@ -10,5 +10,7 @@
                 return "WebSocket" in window;
     ]]></property-provider>
     
-    <entry-point class="com.github.abelaska.gwt.websockets.client.WebSocketsTestEntryPoint" />
+    <source path="client"/>
+    
+    <entry-point class="com.github.abelaska.gwt.websockets.client.WebSocketTestEntryPoint" />
 </module>

@@ -9,3 +9,12 @@ $ git submodule update
 $ cd gwt-websockets
 $ mvn gwt:run
 Open in browser address: http://127.0.0.1:8888/test.html?gwt.codesvr=127.0.0.1:9997
+
+Pro editaci projektu v Eclipse:
+1/ import jako Maven projektu
+2/ kliknuti pravym mysitkem na projekt -> properties -> Google -> Web Toolkit
+3/ zakliknuti checkboxu "Use Google Web toolkit"
+
+Spusteni v Eclipsu:
+1/ run as "Web Application"
+2/ otevrit v prohlizeci adresu: http://127.0.0.1:8888/test.html?gwt.codesvr=127.0.0.1:9997
